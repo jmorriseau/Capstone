@@ -1,0 +1,34 @@
+#project_header {
+	text-align:center;
+	color:#FFF;
+}
+#project_content {
+	width:980px;
+	height:auto;
+	border:2px dashed purple;
+	margin:auto;
+	margin:auto;
+}
+#add_project_content {
+	border:2px solid black;
+}
+.project {
+	height:200px;
+	width:200px;
+	background-color:cadet blue;
+	border:1px solid black;
+	margin:10px;
+}
+
+/* Main events */
+
+.error {
+	color:red;
+}
+
+.hide {
+	display:none;
+}
+.show, .error .hide  {
+	display:inline-block;
+}

@@ -15,7 +15,7 @@
             
             $password = sha1($password);
             
-            $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3307;", "root", "");
+            $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3306;", "root", "");
             $dbs = $pdo->prepare('update user_table set password = :password where username= :username'); 
             
             $dbs->bindParam(':username', $username, PDO::PARAM_STR);
