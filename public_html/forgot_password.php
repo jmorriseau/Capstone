@@ -27,7 +27,7 @@
             $security_q = filter_input(INPUT_POST, 'security_q');
             
             
-            $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3306;", "root", "");
+            $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3307;", "root", "");
             $dbs = $pdo->prepare('select * from user_table where security_q = :security_q'); 
             
             $dbs->bindParam(':security_q', $security_q, PDO::PARAM_STR);
