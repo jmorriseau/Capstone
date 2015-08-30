@@ -27,7 +27,7 @@
 			
 			<p>				
 			<label>Address Line Two</label>
-				<input name="address_two" class="validate" type="text" value="" placeholder="Suite 200" maxlength="40" />
+				<input name="address_two" type="text" value="" placeholder="Suite 200" maxlength="40" />
 					<span class="hide">*</span>
 			</p>
 			
@@ -84,19 +84,19 @@
 
 			<p>	
 			<label>Secondary Contact</label>
-				<input name="secondary_contact" class="validate" type="text" value="" placeholder="Maggie May" maxlength="150" />
+				<input name="secondary_contact" type="text" value="" placeholder="Maggie May" maxlength="150" />
 					<span class="hide">*</span>
 			</p>
 
 			<p>	
 			<label>Phone</label>
-				<input name="secondary_contact_phone" class="validate" type="text" value="" placeholder="508.555.5554" maxlength="13" />
+				<input name="secondary_contact_phone" type="text" value="" placeholder="508.555.5554" maxlength="13" />
 					<span class="hide">*</span>
 			</p>
 			
 			<p>		
 			<label>Email</label>
-				<input name="secondary_contact_email" class="validate" type="text" value="" placeholder="maggiemay@gmail.com" maxlength="150" />
+				<input name="secondary_contact_email" type="text" value="" placeholder="maggiemay@gmail.com" maxlength="150" />
 					<span class="hide">*</span>		
 			</p>
 			

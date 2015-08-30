@@ -9,10 +9,17 @@ $(document).ready(function(){
 			case "link_contacts":
 				page = "tools/contacts/index.php";
 				break;
+                        case "link_add_contact":
+				page = "tools/contacts/add_contact.php";
+				break;        
 				
 			case "link_projects":
-				page = "tools/projects/index.html";
+				page = "tools/projects/index.php";
 				break;
+                        case "link_add_project":
+				page = "tools/projects/add_project.php";
+				break;	        
+                                
 				
 			case "link_invoices":
 				page = "tools/invoices/index.html";
@@ -21,10 +28,7 @@ $(document).ready(function(){
 			case "link_email":
 				page = "tools/email/index.html";
 				break;
-				
-			case "link_add_contact":
-				page = "tools/contacts/add_contact.php";
-				break;	
+			
 		}
 		$("#content").load(page);
 		
