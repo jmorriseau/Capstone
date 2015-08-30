@@ -2,7 +2,7 @@
 	text-align:center;
 	color:#FFF;
 }
-#project_content {
+#project_content, #photo_content, #note_content {
 	width:980px;
 	height:auto;
 	border:2px dashed purple;

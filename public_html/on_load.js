@@ -19,6 +19,12 @@ $(document).ready(function(){
                         case "link_add_project":
 				page = "tools/projects/add_project.php";
 				break;	        
+                        case "link_add_photos":
+				page = "#";
+				break;	        
+                        case "link_add_photo_notes":
+				page = "#";
+				break;	        
                                 
 				
 			case "link_invoices":
