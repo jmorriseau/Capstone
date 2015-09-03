@@ -14,8 +14,8 @@
 	<div id="project_content">
 		
 		<div id="link_add_project">
-			<h2><a href="#">Add Project</a></h2>
-			<i class="fa fa-plus fa-5x"></i>
+			<a href="#"><h2>Add Project</h2>
+			<i class="fa fa-plus fa-5x"></i></a>
 		</div>
 	</div>
 

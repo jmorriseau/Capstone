@@ -14,8 +14,8 @@
 	<div id="contact_content">
 		
 		<div id="link_add_contact">
-			<h2><a href="#">Add Contact</a></h2>
-			<i class="fa fa-plus fa-5x"></i>
+			<a href="#"><h2>Add Contact</h2>
+			<i class="fa fa-plus fa-5x"></i></a>
 		</div>
 	</div>
 

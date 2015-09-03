@@ -28,11 +28,20 @@ $(document).ready(function(){
                                 
 				
 			case "link_invoices":
-				page = "tools/invoices/index.html";
+				page = "tools/invoices/index.php";
 				break;
+                        case "link_add_invoice":
+                                page = "tools/invoices/add_invoice.php";
+                                break;
 
 			case "link_email":
-				page = "tools/email/index.html";
+				page = "tools/email/index.php";
+				break;
+			case "link_add_email":
+				page = "tools/email/add_email.php";
+				break;
+			case "link_browse_emails":
+				page = "tools/email/browse_emails.php";
 				break;
 			
 		}

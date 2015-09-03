@@ -2,16 +2,16 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="tools/projects/main.css" />
+        <link rel="stylesheet" type="text/css" href="tools/contacts/main.css" />
         <link rel="stylesheet" type="text/css" href="images/css/font-awesome.css" />
     </head>
     <body>
 
-        <div id="add_project_header">
-            <h2>Please enter the new project information below.</h2>
+        <div id="add_contact_header">
+            <h2>Please enter the new email information below.</h2>
         </div>
 
-        <form id="add_project" action="#" method="post">
+        <form id="add_email" action="#" method="post">
 
             <p>
                 <label>Company</label>
@@ -39,34 +39,16 @@
             </p>
 
             <p>	
-                <label>Project Name</label>
-                <input name="project_name" class="validate" type="text" value="" placeholder="Dock Leveler Project" maxlength="40" />
+                <label>Subject</label>
+                <input name="email_subject" class="validate" type="text" value="" placeholder="Invoice #12345" maxlength="150" />
                 <span class="hide">*</span>
             </p>
-
-            <p>				
-                <label>Invoice Number</label>
-                <input name="invoice_number" type="text" value="" placeholder="12345" maxlength="40" />
+            
+            <p>	
+                <label>Message</label>
+                <textarea name="email_message" rows="20" cols="100" class="validate" value="" placeholder="Hello"> </textarea>
                 <span class="hide">*</span>
             </p>
-
-            <p>
-            <div id="photo_content">
-                <div id="link_add_photos">
-                    <h2>Add Photos</h2>                   
-                    <i class="fa fa-plus fa-5x"><input type="file" name="fileToUpload" id="fileToUpload"></i>
-                    <!--<input type="submit" value="Upload Image" name="submit">-->
-                </div>
-            </div>
-
-            <div id="note_content">
-                <div id="link_add_photo_notes">
-                    <h2>Add Notes</h2>
-                    <i class="fa fa-plus fa-5x"><input type="file" name="fileToUpload" id="fileToUpload"></i>
-                    <!--<input type="submit" value="Upload Image" name="submit">-->
-                </div>
-            </div>
-
 
 
             <input type="submit" name="submit" value="Save" />
@@ -74,7 +56,7 @@
 
         </form>
 
-        <script type="text/javascript" src="tools/projects/projects.js"></script>
+        <script type="text/javascript" src="tools/email/email.js"></script>
 
     </body>
 

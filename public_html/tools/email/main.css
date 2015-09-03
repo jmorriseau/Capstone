@@ -1,24 +1,29 @@
-#invoice_header {
+
+/***index.php***/
+#email_header {
 	text-align:center;
 	color:#FFF;
 }
-#invoice_content {
+#email_content {
 	width:980px;
 	height:auto;
 	border:2px dashed purple;
 	margin:auto;
 	margin:auto;
 }
-#add_invoice_content {
+
+/***add_email.php***/
+#add_email_content {
 	border:2px solid black;
 }
-.invoice {
+/*** not used
+.email {
 	height:200px;
 	width:200px;
 	background-color:cadet blue;
 	border:1px solid black;
 	margin:10px;
-}
+}***/
 
 /* Main events */
 
@@ -31,10 +36,4 @@
 }
 .show, .error .hide  {
 	display:inline-block;
-}
-
-table, th, td {
-    border:1px solid black;
-    
-
 }

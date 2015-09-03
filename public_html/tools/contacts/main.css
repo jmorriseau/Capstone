@@ -1,3 +1,5 @@
+
+/***index.php***/
 #contact_header {
 	text-align:center;
 	color:#FFF;
@@ -9,16 +11,19 @@
 	margin:auto;
 	margin:auto;
 }
+
+/***add_contact.php***/
 #add_contact_content {
 	border:2px solid black;
 }
+/***
 .contact {
 	height:200px;
 	width:200px;
 	background-color:cadet blue;
 	border:1px solid black;
 	margin:10px;
-}
+}***/
 
 /* Main events */
 

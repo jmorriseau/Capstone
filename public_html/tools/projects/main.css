@@ -1,18 +1,21 @@
-#invoice_header {
+/***index.php***/
+#project_header {
 	text-align:center;
 	color:#FFF;
 }
-#invoice_content {
+#project_content {
 	width:980px;
 	height:auto;
 	border:2px dashed purple;
 	margin:auto;
 	margin:auto;
 }
-#add_invoice_content {
+/***add_project.php***/
+#add_project_content {
 	border:2px solid black;
 }
-.invoice {
+
+.project {
 	height:200px;
 	width:200px;
 	background-color:cadet blue;
@@ -31,10 +34,4 @@
 }
 .show, .error .hide  {
 	display:inline-block;
-}
-
-table, th, td {
-    border:1px solid black;
-    
-
 }
