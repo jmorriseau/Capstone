@@ -1,59 +1,80 @@
+@import url(https://fonts.googleapis.com/css?family=Merriweather+Sans);
+
 html, body {
-	font-size:16px;
-	font-family:Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-family: 'Merriweather Sans', sans-serif;
 }
 
 header {
-	width:100%;
-	height:150px;
-	background-color:yellow;
-	background-image:url("images/jm.jpg");
-	background-repeat:no-repeat;
+    width:100%;
+    height: 90px;
+    background-color: rgb(239,237,227);
+    background-image:url("images/jm.jpg");
+    background-repeat:no-repeat;
 }
 #find {
-	float:right;
-	background-color: orange;
-	width:calc(100% - 200px);
-	height:50px;
+    background-color: #8DABA7;
+    height: 25px;
+    margin-top: 10px;
+    float: left;
+    padding: 10px;
+    width: calc(100% - 20px);
+}
+#search_input {
+    width: 150px;
+    float: left;
+    margin-right: 20px;
+}
+#search_icon {
+    background-image: url("images/search.png");
+    background-repeat: no-repeat;
+    height: 22px;
+    width: 27px;
+    float: left;
+    background-position: 0px -44px;
 }
 #find li{
-	float: left;
-    padding: 0 28px 10px 0;
-    margin-left: -1px;
-    line-height: 1;
+    float: left;
+    padding: 0px 12px 0px 10px;
 }
 #find ul {
-	list-style:none;
+    list-style: outside none none;
+    float: right;
+    margin: 0px;
 }
 li a {
-	text-decoration:none;
+    text-decoration: none;
+    position: relative;
+    right: 10px;
 }
 #nav{
-	width:200px;
-	float:left;
-	background-color:purple;
-	height:550px;
+    width: 230px;
+    float:left;
+    background-color: #8DABA7;
+    height:550px;
 }
 #nav ul {
-	list-style:none;
+    list-style:none;
     padding-left:0;
+    margin-top: 0;
 }
 #nav li {
-	width:196px;
-	height:50px;
-	border:2px solid black;
-	text-align:center;
-	line-height:50px;
-	margin-bottom: -1px;
+    width: 230px;
+    height:50px;
+    text-align: right;
+    line-height:50px;
+    margin-bottom: -1px;
+    border-bottom: 1px solid #EFEDE3;
+    border-top: 1px solid #EFEDE3;
 }
 #nav li a {
-	color:#FFF;
+    color:#FFF;
 }
 
 
 #content {
-	width:calc(100% - 200px);
-	float:left;
-	height:500px;
-	background-color:teal;
+    float:left;
+    width: calc(100% - 230px);
+    height:500px;
+    background-color: white;
 }

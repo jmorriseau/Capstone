@@ -12,7 +12,10 @@
 	Here is some header information about the date and stuff like that.
 </header>
 
-<div id="find">
+    
+<div id="find"> 
+    <input id="search_input" type="text" placeholder="Search"/>
+    <div id="search_icon"></div>
 	<?php include_once("php/find.php"); ?>
 </div>
 
