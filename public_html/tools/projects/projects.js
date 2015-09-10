@@ -20,18 +20,18 @@ function checkForm(e) {
     var isValid = true;
 
    
-    if ($.trim($("input[name=invoice_number]").val()) != "") {
+    if ($.trim($("input[name=invoice_number]").val()) !== "") {
         $("input[name=invoice_number]").addClass('validate');
     }
     else{
         $("input[name=invoice_number]").removeClass('validate');
     }
     
-    
+
 
     $('#add_project .validate').each(function () {
         //$(this).length <= 0) ||          
-        if ($(this).val() == "" || !regexValidations[this.name].test(this.value)) {
+        if ($(this).val() === "" || !regexValidations[this.name].test(this.value)) {
             $(this).parent().addClass('error');
             isValid = false;
         }
@@ -39,9 +39,9 @@ function checkForm(e) {
             $(this).parent().removeClass('error');
         }
     })
-
-    if (isValid == false) {
-        alert("Please correct the missing fields.")
+;
+    if (isValid === false) {
+        alert("Please correct the missing fields.");
     }
     else {
         $.ajax({
@@ -50,19 +50,20 @@ function checkForm(e) {
             dataType: "JSON",
             data: {company_name: $("select[name=company_name] option:selected").val(),
                 project_name: $("input[name=project_name]").val(),
-                invoice_number: $("input[name=invoice_number").val()                          
+                invoice_number: $("input[name=invoice_number").val(),                          
+                fileToUpload: $("input[name=fileToUpload").val()                          
             },
             success: function (data) {
                 console.log("success " + data);
                 //window.open("http://www.google.com","_self");
                 $("#content").load("tools/projects/index.php", function () {
-                    alert("Project successfull added");
+                    alert("Project successfully added");
                 });
             },
             error: function (data) {
                 console.log(data.responseText);
             }
-        })
+        });
     }
 
 }

@@ -5,6 +5,8 @@ header('Content-type: application/json');
 $success = true;
 $response_array['status'] = 'success';
 $db_success = '';
+date_default_timezone_set('EST');
+$today = date('Y-m-d H:i:s'); 
 
 $company = $_POST['company_name'];
 $email_subject = $_POST['email_subject'];
@@ -28,11 +30,12 @@ foreach ($validation as $valid) {
 if ($success == true) {
 
     $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3306;", "root", "");
-    $dbs = $pdo->prepare('insert into email_table set email_subject = :email_subject');
+    $dbs = $pdo->prepare('insert into email_table set email_subject = :email_subject, contact_id = (select contact_id from contact_table where company_name = :company_name), attachment_blog = :attachment_blog, email_date_sent = :email_date_sent');
 
-    //$dbs->bindParam(':company_name', $company, PDO::PARAM_STR);
+    $dbs->bindParam(':company_name', $company, PDO::PARAM_STR);
     $dbs->bindParam(':email_subject', $email_subject, PDO::PARAM_STR);
-    //$dbs->bindParam(':company_address_line_two', $address_two, PDO::PARAM_STR);
+    $dbs->bindParam(':attachment_blog', $email_message, PDO::PARAM_STR);
+    $dbs->bindParam(':email_date_sent', $today, PDO::PARAM_STR);
     
 
 

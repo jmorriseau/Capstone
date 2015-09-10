@@ -59,13 +59,13 @@
                 </div>
             </div>
 
-            <div id="note_content">
+<!--            <div id="note_content">
                 <div id="link_add_photo_notes">
                     <h2>Add Notes</h2>
                     <i class="fa fa-plus fa-5x"><input type="file" name="fileToUpload" id="fileToUpload"></i>
-                    <!--<input type="submit" value="Upload Image" name="submit">-->
+                    <input type="submit" value="Upload Image" name="submit">
                 </div>
-            </div>
+            </div>-->
 
 
 
