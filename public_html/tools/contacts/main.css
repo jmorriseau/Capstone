@@ -1,39 +1,65 @@
 
 /***index.php***/
-#contact_header {
-	text-align:center;
-	color:#FFF;
+a {
+    text-decoration:none;
+
 }
-#contact_content {
-	width:980px;
-	height:auto;
-	border:2px dashed purple;
-	margin:auto;
-	margin:auto;
+#contact_header {
+    text-align: left;
+    margin-left: 40px;
+    color: #000;
+    margin-top: 0;
+}
+.contact_content {
+    width: 325px;
+    height: 325px;
+    background-color: #efede3;
+    margin: 30px;
+    float:left;
+    text-shadow:1px 1px #605149;
+}
+.contact_name {
+    background-color: #adbf4d;
+    height: 75px;
+    margin: 0;
+    color: #FFF;
+    font-size: 24px;
+    line-height: 75px;
+    text-decoration: none;
+    padding-left: 10px;
+}
+.contact_body {
+    padding: 5px 0 0 25px;
+    color: #605149;
+    text-shadow: none;
+}
+.icon  {
+    color:#605149;
+    padding:15px 0 0 100px;
 }
 
 /***add_contact.php***/
 #add_contact_content {
-	border:2px solid black;
+    border:2px solid black;
 }
 /***
 .contact {
-	height:200px;
-	width:200px;
-	background-color:cadet blue;
-	border:1px solid black;
-	margin:10px;
+        height:200px;
+        width:200px;
+        background-color:cadet blue;
+        border:1px solid black;
+        margin:10px;
 }***/
 
 /* Main events */
 
 .error {
-	color:red;
+    color:red;
 }
 
 .hide {
-	display:none;
+    display:none;
 }
 .show, .error .hide  {
-	display:inline-block;
+    display:inline-block;
 }

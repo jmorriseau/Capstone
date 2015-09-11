@@ -5,7 +5,7 @@ header('Content-type: application/json');
 $success = true;
 $response_array['status'] = 'success';
 $db_success = '';
-date_default_timezone_set('EST');
+date_default_timezone_set('America/New_York');
 $today = date('Y-m-d H:i:s'); 
 
 $company = $_POST['company_name'];
