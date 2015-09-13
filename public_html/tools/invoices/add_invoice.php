@@ -17,14 +17,11 @@
                 <label>Company</label>
                 <?php
                 $company_selected = filter_input(INPUT_POST, 'companies');
-
-                $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3306;", "root", "");
-
+                $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3307;", "root", "");
                 $dbs = $pdo->prepare('select * from contact_table');
                 $companies = array();
                 $dbs->execute();
                 $companies = $dbs->fetchAll(PDO::FETCH_ASSOC);
-
                 echo '<select name="company_name">';
                 echo '<option value=" ">Select a Company</option>';
                 foreach ($companies as $value) {
@@ -52,29 +49,47 @@
 
             <p>
             <table id="table_data">
-                <tr id="header_row">
+                <thead>
+                <tr>
                     <th>Description</th>
                     <th>Price</th> 
                     <th>Quantity</th>
                     <th>Total</th>
                 </tr>
-                <tr id="main_row">
-                    <td><input name="description_1" class="validate" value="" type="text" maxlength="150"</td>
-                    <td><input name="price_1" class="validate" value="" type="number" maxlength="99"</td> 
-                    <td><input name="quantity_1" class="validate" value="" type="number" maxlength="99"</td>
-                    <td><input name="total_1" class="validate" value="" type="number" maxlength="99"</td>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><input name="description_1" class="validate" type="text" maxlength="150"</td>
+                    <td><input class="invoice_price" name="price_1" type="number" maxlength="99"</td> 
+                    <td><input class="invoice_quantity" name="quantity_1" type="number" maxlength="99"</td>
+                    <td><input class="invoice_total" name="total_1" type="text" maxlength="99"</td>
                 
                 </tr>
-                
+                </tbody>
             </table>
             <input type="button" id="add_row" value="Add Additional Items"/>
             <input type="button" id="delete_row" value="Delete Last Item"/>
         </p>
 
         <p>
+            <label>Total</label>
+            <input type="text">
+        </p>
+        
+        <p>
+            <label>Tax</label>
+            <input type="text">
+        </p>        
+        
+        <p>
             <input type="checkbox" name="tax_exempt" value="">Tax Exempt<br/>    
         </p>
-
+        
+        <p>
+            <label>Grand Total</label>
+            <input type="text">
+        </p>
+            
 
         <input type="submit" name="submit_save" value="Update/Save" />
         <input type="submit" name="submit_send" value="Save and Send" />
