@@ -11,7 +11,7 @@
             <h2>Please enter the new project information below.</h2>
         </div>
 
-        <form id="add_project" action="#" method="post">
+        <form id="add_project" action="#" method="post" enctype="multipart/form-data">
 
             <p>
                 <label>Company</label>
