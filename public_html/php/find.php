@@ -1,3 +1,5 @@
+
+<!--Search menu at bottom of header -->
 <ul>
 <li><a href="#">123</a>|</li>
 <li><a href="#">A</a>|</li> 

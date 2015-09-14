@@ -50,7 +50,7 @@
                 <span class="hide">*</span>
             </p>
 
-            <p>
+            
             <div id="photo_content">
                 <div id="link_add_photos">
                     <h2>Add Photos</h2>                   
@@ -58,19 +58,14 @@
                     <!--<input type="submit" value="Upload Image" name="submit">-->
                 </div>
             </div>
-
-<!--            <div id="note_content">
-                <div id="link_add_photo_notes">
-                    <h2>Add Notes</h2>
-                    <i class="fa fa-plus fa-5x"><input type="file" name="fileToUpload" id="fileToUpload"></i>
-                    <input type="submit" value="Upload Image" name="submit">
-                </div>
-            </div>-->
-
-
-
+            
+            <p>				
+                <label>Notes</label>
+                <textarea name="project_notes" rows="10" cols="50">Add some notes</textarea>
+                <span class="hide">*</span>
+            </p>
+ 
             <input type="submit" name="submit" value="Save" />
-
 
         </form>
 

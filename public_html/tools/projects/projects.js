@@ -24,6 +24,14 @@ function checkForm(event) {
     else {
         $("input[name=invoice_number]").removeClass('validate');
     }
+    
+    //Do we need to validate the notes?
+//    if ($.trim($("input[name=project_notes]").val()) !== "") {
+//        $("input[name=project_notes]").addClass('validate');
+//    }
+//    else {
+//        $("input[name=project_notes]").removeClass('validate');
+//    }
 
     $('#add_project .validate').each(function () {
         //$(this).length <= 0) ||          
@@ -79,16 +87,7 @@ function checkForm(event) {
         else {
             submitForm();
         }
-
-
-
-//        data.append("company_name", $("select[name=company_name] option:selected").val());
-//        data.append("project_name", $("input[name=project_name]").val());
-//        data.append("invoice_number", $("input[name=invoice_number").val());
-        
-        
-
-        
+      
     }
 }
 
@@ -99,7 +98,7 @@ function prepareUpload(event)
     console.log(uploads);
 }
 
-
+//fileToUpload bombs when there is no index
 function submitForm() {
 console.log("here");
         $.ajax({
@@ -109,14 +108,14 @@ console.log("here");
             data: {company_name: $("select[name=company_name] option:selected").val(),
                 project_name: $("input[name=project_name]").val(),
                 invoice_number: $("input[name=invoice_number").val(),
+                project_notes: $("textarea[name=project_notes").val(),
                 fileToUpload: uploads[0].name
             },
             success: function (data) {
                 console.log("success " + data);
-                //window.open("http://www.google.com","_self");
-//                $("#content").load("tools/projects/index.php", function () {
-//                    alert("Project successfully added");
-//                });
+                $("#content").load("tools/projects/index.php", function () {
+                    alert("Project successfully added");
+                });
             },
             error: function (data) {
                 console.log(data.responseText);

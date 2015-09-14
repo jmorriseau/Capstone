@@ -47,7 +47,7 @@ function checkForm(e) {
                 console.log("success " + data);
                 //window.open("http://www.google.com","_self");
                 $("#content").load("tools/email/index.php", function () {
-                    alert("Email successfull added");
+                    alert("Email successfully added");
                 });
             },
             error: function (data) {

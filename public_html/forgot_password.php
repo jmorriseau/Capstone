@@ -9,10 +9,10 @@
     <h1>Security Question</h1>
         <form action="#" method="post">
 
+            <!-- Ask security question for forgot password-->
             <div id="security_question">
                 <label>What is your daughter's middle name?:</label>
                 <input type="text" name="security_q"/><br/>
-
             </div>
 
             <div id="buttons">
@@ -21,6 +21,7 @@
 
         </form>
     
+        <!-- If an answer is input, set the value to a variable and check against the db-->
     	<?php
 	    if ( !empty($_POST) ) {
             
@@ -31,7 +32,8 @@
             $dbs = $pdo->prepare('select * from user_table where security_q = :security_q'); 
             
             $dbs->bindParam(':security_q', $security_q, PDO::PARAM_STR);
-                
+             
+            //if answer is valid send to update_password.php, if invalid alert the user
             if ( $dbs->execute() && $dbs->rowCount() > 0 ) {
                     header('Location: update_password.php');
             } else {

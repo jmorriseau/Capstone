@@ -1,39 +1,40 @@
 
 /***index.php***/
 #email_header {
-	text-align:center;
-	color:#FFF;
+    text-align:center;
+    color:#FFF;
 }
 #email_content {
-	width:980px;
-	height:auto;
-	border:2px dashed purple;
-	margin:auto;
-	margin:auto;
+    width: 325px;
+    height: 325px;
+    background-color: #efede3;
+    margin: 30px;
+    float:left;
+    text-shadow:1px 1px #605149;
 }
 
 /***add_email.php***/
 #add_email_content {
-	border:2px solid black;
+    border:2px solid black;
 }
 /*** not used
 .email {
-	height:200px;
-	width:200px;
-	background-color:cadet blue;
-	border:1px solid black;
-	margin:10px;
+        height:200px;
+        width:200px;
+        background-color:cadet blue;
+        border:1px solid black;
+        margin:10px;
 }***/
 
 /* Main events */
 
 .error {
-	color:red;
+    color:red;
 }
 
 .hide {
-	display:none;
+    display:none;
 }
 .show, .error .hide  {
-	display:inline-block;
+    display:inline-block;
 }

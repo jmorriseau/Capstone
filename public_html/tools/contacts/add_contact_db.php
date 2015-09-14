@@ -1,11 +1,14 @@
 <?php
 
+//Set content-type for ajax call as json
 header('Content-type: application/json');
 
+//create flag variables
 $success = true;
 $response_array['status'] = 'success';
 $db_success = '';
 
+//take the fields from the post and set them to php variables
 $company = $_POST['company'];
 $address_one = $_POST['address_one'];
 $address_two = $_POST['address_two'];
@@ -19,6 +22,7 @@ $secondary_contact = $_POST['secondary_contact'];
 $secondary_contact_phone = $_POST['secondary_contact_phone'];
 $secondary_contact_email = $_POST['secondary_contact_email'];
 
+//add variables to a validation array
 $validation = array();
 $validation[0] = $company;
 $validation[1] = $address_one;
@@ -43,7 +47,7 @@ foreach ($validation as $valid) {
 }
 
 
-
+//if the variables pass validation send to the db
 if ($success == true) {
 
     $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3306;", "root", "");
@@ -69,6 +73,6 @@ if ($success == true) {
         $db_success = 'Insert NOT successful';
     }
 }
-
+//send success back to js
 echo json_encode($db_success);
 

@@ -1,3 +1,4 @@
+<!-- Main page -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,20 +11,21 @@
 
         <header>
             <div id="date_header">Today is 
-                <?php 
+                <?php
                 date_default_timezone_set('America/New_York');
-                echo date("l, F d, Y"); 
+                echo date("l, F d, Y");
                 ?>
             </div>
         </header>
 
-
+        <!-- Search bar -->
         <div id="find"> 
             <input id="search_input" type="text" placeholder="Search"/>
             <div id="search_icon"></div>
-<?php include_once("php/find.php"); ?>
+            <?php include_once("php/find.php"); ?>
         </div>
 
+        <!-- Left hand navigation -->
         <div id="nav">
             <ul>
                 <li>Home</li>
@@ -35,7 +37,7 @@
         </div>
 
         <div id="content">
-            This is the main section of information.
+            Welcome! Please make a selection from the left hand side navigation.
         </div>
 
 

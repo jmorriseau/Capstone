@@ -1,3 +1,4 @@
+<!-- Log in page -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +16,7 @@
             $username = filter_input(INPUT_POST, 'username');   
             $password = filter_input(INPUT_POST, 'password');
             
+            //hash password before inputting into the db
             $password = sha1($password);
             
             $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3306;", "root", "");

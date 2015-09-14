@@ -1,3 +1,4 @@
+//Main css for site
 @import url(https://fonts.googleapis.com/css?family=Merriweather+Sans);
 
 html, body {
@@ -12,6 +13,8 @@ header {
     background-image:url("images/jm.jpg");
     background-repeat:no-repeat;
 }
+
+//Search
 #find {
     background-color: #8DABA7;
     height: 25px;
@@ -47,6 +50,8 @@ li a {
     position: relative;
     right: 10px;
 }
+
+//Left hand navigation
 #nav{
     width: 230px;
     float:left;
@@ -71,7 +76,7 @@ li a {
     color:#FFF;
 }
 
-
+//Main Content
 #content {
     float:left;
     width: calc(100% - 230px);

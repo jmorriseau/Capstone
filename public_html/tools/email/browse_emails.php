@@ -5,25 +5,36 @@
         <link rel="stylesheet" type="text/css" href="tools/email/main.css" />
     </head>
     <body>        
-
+        <?php
         
-            <table id="table_data">
-                <tr id="header">
-                    <th>Date</th>
-                    <th>Company</th>
-                    <th>Email Subject</th>                   
-                </tr>
-                <tr id="main_row">
-                    <td><input name="email_date" class="validate" value="" type="text" maxlength="150"</td>
-                    <td><input name="company_name" class="validate" value="" type="number" maxlength="99"</td> 
-                    <td><input name="email_subject" class="validate" value="" type="number" maxlength="99"</td>              
-                </tr>
-                
-            </table>
-            
+        $company_name = 'Bottomline Technologies';
+        
+        $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3306;", "root", "");
+        $dbs = $pdo->prepare('select * from email_table where contact_id = (select contact_id from contact_table where company_name = :company_name)');
+        $dbs->bindParam(':company_name', $company_name, PDO::PARAM_STR);
+      
+        $emails = array();
+
+        if ($dbs->execute() && $dbs->rowCount() > 0) {
+            $emails = $dbs->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($emails as $email) {
+                echo '<table><thead>';
+                echo '<tr><th>' . 'Company Emails' . '</th></tr></thead>';
+
+                echo '<tbody><tr> <td>' . $email["email_subject"] . '</td> </tr>';
+                echo '<tbody><tr> <td>' . $email["email_date_sent"] . '</td> </tr>';
+                echo '<tbody><tr> <td>' . $email["attachment_blog"] . '</td> </tr></tbody>';
+
+                echo '</table>';
+            }
+        } else {
+            echo 'No company emails found';
+        }
+        ?>
 
     <!--<script type="text/javascript" src="tools/email/emails.js"></script>-->
 
-</body>
+    </body>
 
 </html>

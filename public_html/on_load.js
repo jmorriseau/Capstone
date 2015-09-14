@@ -1,10 +1,11 @@
-//load these events
+//load these events 
 
 $(document).ready(function(){
 	
 	$("[id*='link_']").click(function(){
 		var page = "";
 		
+                //handle all links to main pages
 		switch(this.id){
 			case "link_contacts":
 				page = "tools/contacts/index.php";

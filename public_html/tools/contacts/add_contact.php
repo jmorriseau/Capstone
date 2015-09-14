@@ -10,7 +10,8 @@
 	<div id="add_contact_header">
 		<h2>Please enter the new contact information below.</h2>
 	</div>
-	
+                
+                <!--Form to add a new contact-->
 		<form id="add_contact" action="#" method="post">
 		
 			<p>
@@ -37,6 +38,7 @@
 					<span class="hide">*</span>
 			</p>
 			
+                        <!--Pull list of states for address drop down-->
 			<p>
 			<label>State</label>
 				<?php
