@@ -22,7 +22,7 @@
         <div id="project_content">
             <?php
             $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3306;", "root", "");
-            $dbs = $pdo->prepare('select * from project_table');
+            $dbs = $pdo->prepare('select * from project_table join contact_table on project_table.contact_id');
             $projects = array();
 
             if ($dbs->execute() && $dbs->rowCount() > 0) {
@@ -32,9 +32,10 @@
                     echo '<table><thead>';
                     echo '<tr><th>' . 'Project Information' . '</th></tr></thead>';
 
-                    echo '<tbody><tr> <td>' . $project["project_name"] . '</td> </tr>';
-//                    echo '<tr> <td>' . $project["date_created"] . '</td></tr>';
-                    
+                    echo '<tbody><tr> <td>' . $project["company_name"] . '</td> </tr>';
+                    echo '<tr> <td>' . $project["project_name"] . '</td> </tr>';
+                    echo '<tr> <td>' . $project["project_date_created"] . '</td></tr>';
+                    echo '<tr> <td>' . $project["invoice_number"] . '</td></tr>';                   
                     echo '<tr> <td>' . $project["photo_blob"] . '</td></tr></tbody>';
 
                     echo '</table>';

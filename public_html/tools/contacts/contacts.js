@@ -6,7 +6,7 @@ form.addEventListener('submit', checkForm);
 
 //Set regexValidation for each field being passed from add_contact.php
 var regexValidations = {
-    "company": /^[a-zA-Z ]*$/,
+    "company": /^[a-zA-Z 0-9]*$/,
     "address_one": /^\d{1,6}\040([A-Z]{1}[a-z]{1,}\040[A-Z]{1}[a-z]{1,})$|^\d{1,6}\040([A-Z]{1}[a-z]{1,}\040[A-Z]{1}[a-z]{1,}\040[A-Z]{1}[a-z]{1,})$|^\d{1,6}\040([A-Z]{1}[a-z]{1,}\040[A-Z]{1}[a-z]{1,}\040[A-Z]{1}[a-z]{1,}\040[A-Z]{1}[a-z]{1,})$/,
     "address_two": /[a-z0-9]/i,
     "city": /.*/,
@@ -85,7 +85,7 @@ function checkForm(e) {
                 address_one: $("input[name=address_one]").val(),
                 address_two: $("input[name=address_two]").val(),
                 city: $("input[name=city]").val(),
-                states: $("select[name=states] option:selected").val(),
+                state: $("select[name=state] option:selected").val(),
                 zip: $("input[name=zip]").val(),
                 primary_contact: $("input[name=primary_contact]").val(),
                 primary_contact_phone: $("input[name=primary_contact_phone]").val(),
@@ -99,7 +99,7 @@ function checkForm(e) {
                 console.log("success " + data);
                 //window.open("http://www.google.com","_self");
                 $("#content").load("tools/contacts/index.php", function () {
-                    alert("Contact successfull added");
+                    alert("Contact successfully added");
                 });
             },
             //if ajax is unsuccessful, show response text in console

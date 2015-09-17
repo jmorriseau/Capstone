@@ -42,7 +42,7 @@ $(document).ready(function(){
 				page = "tools/email/add_email.php";
 				break;
 			case "link_browse_emails":
-				page = "tools/email/browse_emails.php";
+				page = "tools/email/browse_emails.php?$company_name";
 				break;
 			
 		}

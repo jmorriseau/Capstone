@@ -12,29 +12,30 @@
 	</div>
                 
                 <!--Form to add a new contact-->
+                <div class="form_style">
 		<form id="add_contact" action="#" method="post">
 		
 			<p>
-			<label>Company</label>
-				<input name="company" class="validate" type="text" value="" placeholder="ABC Company" maxlength="40" />
+			<label class="label">Company</label>
+				<input name="company" class="validate input" type="text" value="" placeholder="ABC Company" maxlength="40" />
 					<span class="hide">*</span>
 			</p>
 			
 			<p>	
-			<label>Address Line One</label>
-				<input name="address_one" class="validate" type="text" value="" placeholder="15 Main St" maxlength="40" />
+			<label class="label">Address Line One</label>
+				<input name="address_one" class="validate input" type="text" value="" placeholder="15 Main St" maxlength="40" />
 					<span class="hide">*</span>
 			</p>
 			
 			<p>				
-			<label>Address Line Two</label>
-				<input name="address_two" type="text" value="" placeholder="Suite 200" maxlength="40" />
+			<label class="label">Address Line Two</label>
+				<input name="address_two" class="input" type="text" value="" placeholder="Suite 200" maxlength="40" />
 					<span class="hide">*</span>
 			</p>
 			
 			<p>
 			<label>City</label>
-				<input name="city" class="validate" type="text" value="" placeholder="North Attleboro" maxlength="150" />
+				<input name="city" class="validate input" type="text" value="" placeholder="North Attleboro" maxlength="150" />
 					<span class="hide">*</span>
 			</p>
 			
@@ -43,11 +44,11 @@
 			<label>State</label>
 				<?php
 					$state_selected = filter_input(INPUT_POST,'states');
-					//$selected = 'selected="selected"';
-						
+					
 					include 'states.php';
 					
-					echo '<select name="states">';
+					echo '<select name="state" class="validate">';
+                                        echo '<option value="">Select a state</option>';
 					foreach($states as $key => $value){
 						if($state_selected == $key){
 						echo '<option value="',$key,'" selected="selected">',$value,'</option>';      
@@ -62,43 +63,43 @@
 			
 			<p>
 			<label>ZIP Code</label>
-				<input name="zip" class="validate" type="text" value="" placeholder="02903" maxlength="10" />
+				<input name="zip" class="validate input" type="text" value="" placeholder="02903" maxlength="10" />
 					<span class="hide">*</span>
 			</p>
 
 			<p>	
 			<label>Primary Contact</label>
-				<input name="primary_contact" class="validate" type="text" value="" placeholder="Mary May" maxlength="150" />
+				<input name="primary_contact" class="validate input" type="text" value="" placeholder="Mary May" maxlength="150" />
 					<span class="hide">*</span>
 			</p>
 
 			<p>	
 			<label>Phone</label>
-				<input name="primary_contact_phone" class="validate" type="text" value="" placeholder="508.555.5555" maxlength="13" />
+				<input name="primary_contact_phone" class="validate input" type="text" value="" placeholder="508.555.5555" maxlength="10" />
 					<span class="hide">*</span>
 			</p>
 
 			<p>	
 			<label>Email</label>
-				<input name="primary_contact_email" class="validate" type="text" value="" placeholder="marymay@gmail.com" maxlength="150" />
+				<input name="primary_contact_email" class="validate input" type="text" value="" placeholder="marymay@gmail.com" maxlength="150" />
 					<span class="hide">*</span>
 			</p>
 
 			<p>	
 			<label>Secondary Contact</label>
-				<input name="secondary_contact" type="text" value="" placeholder="Maggie May" maxlength="150" />
+				<input name="secondary_contact" class="input" type="text" value="" placeholder="Maggie May" maxlength="150" />
 					<span class="hide">*</span>
 			</p>
 
 			<p>	
 			<label>Phone</label>
-				<input name="secondary_contact_phone" type="text" value="" placeholder="508.555.5554" maxlength="13" />
+				<input name="secondary_contact_phone" class="input" type="text" value="" placeholder="508.555.5554" maxlength="10" />
 					<span class="hide">*</span>
 			</p>
 			
 			<p>		
 			<label>Email</label>
-				<input name="secondary_contact_email" type="text" value="" placeholder="maggiemay@gmail.com" maxlength="150" />
+				<input name="secondary_contact_email" class="input" type="text" value="" placeholder="maggiemay@gmail.com" maxlength="150" />
 					<span class="hide">*</span>		
 			</p>
 			
@@ -106,6 +107,7 @@
 
 			
 		</form>
+                </div>
 	
 <script type="text/javascript" src="tools/contacts/contacts.js"></script>
 	

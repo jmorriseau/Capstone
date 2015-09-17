@@ -33,18 +33,19 @@ foreach ($validation as $valid) {
 }
 
 if ($success === true) {
-    get_contact_id($company_name, $project_name, $fileToUpload, $project_notes, $today);
+    get_contact_id($company_name, $project_name, $fileToUpload, $project_notes, $today, $invoice);
 }
 
-function get_contact_id($company_name, $project_name, $fileToUpload, $project_notes, $today) {
+function get_contact_id($company_name, $project_name, $fileToUpload, $project_notes, $today, $invoice) {
     $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3306;", "root", "");
-    $dbs = $pdo->prepare("INSERT into project_table set contact_id = (select contact_id from contact_table where company_name = :company_name), project_name = :project_name, note_blob = :note_blob, photo_blob = :photo_blob, project_date_created = :project_date_created");
+    $dbs = $pdo->prepare("INSERT into project_table set contact_id = (select contact_id from contact_table where company_name = :company_name), project_name = :project_name, note_blob = :note_blob, photo_blob = :photo_blob, project_date_created = :project_date_created, invoice_number = :invoice_number");
 
     $dbs->bindParam(':company_name', $company_name, PDO::PARAM_STR);
     $dbs->bindParam(':project_name', $project_name, PDO::PARAM_STR);  
     $dbs->bindParam(':photo_blob', $fileToUpload, PDO::PARAM_STR);
     $dbs->bindParam(':note_blob', $project_notes, PDO::PARAM_STR);
     $dbs->bindParam(':project_date_created', $today, PDO::PARAM_STR);
+    $dbs->bindParam(':invoice_number', $invoice, PDO::PARAM_STR);
 
 
     if ($dbs->execute() && $dbs->rowCount() > 0) {

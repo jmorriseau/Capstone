@@ -10,7 +10,8 @@
         <div id="add_contact_header">
             <h2>Please enter the new email information below.</h2>
         </div>
-
+        
+        <div class="form_style">
         <form id="add_email" action="#" method="post">
 
             <p>
@@ -40,13 +41,13 @@
 
             <p>	
                 <label>Subject</label>
-                <input name="email_subject" class="validate" type="text" value="" placeholder="Invoice #12345" maxlength="150" />
+                <input name="email_subject" class="validate input" type="text" value="" placeholder="Invoice #12345" maxlength="150" />
                 <span class="hide">*</span>
             </p>
             
             <p>	
                 <label>Message</label>
-                <textarea name="email_message" rows="20" cols="100" class="validate" value="" placeholder="Hello"> </textarea>
+                <textarea name="email_message" rows="20" cols="100" class="validate" placeholder="Hello"></textarea>
                 <span class="hide">*</span>
             </p>
 
@@ -55,6 +56,7 @@
 
 
         </form>
+        </div>    
 
         <script type="text/javascript" src="tools/email/email.js"></script>
 

@@ -14,7 +14,6 @@ $(function () {
 function checkForm(event) {
     event.stopPropagation();
     event.preventDefault();
-    //console.log($("select[name=company_name] option:selected").val()); 
 
     var isValid = true;
 
@@ -99,7 +98,7 @@ function prepareUpload(event)
 }
 
 //fileToUpload bombs when there is no index
-function submitForm() {
+function submitForm() {    
 console.log("here");
         $.ajax({
             url: "tools/projects/add_project_db.php",
@@ -107,8 +106,8 @@ console.log("here");
             dataType: "JSON",
             data: {company_name: $("select[name=company_name] option:selected").val(),
                 project_name: $("input[name=project_name]").val(),
-                invoice_number: $("input[name=invoice_number").val(),
-                project_notes: $("textarea[name=project_notes").val(),
+                invoice_number: $("input[name=invoice_number]").val(),
+                project_notes: $("textarea[name=project_notes]").val(),
                 fileToUpload: uploads[0].name
             },
             success: function (data) {

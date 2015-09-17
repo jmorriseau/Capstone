@@ -26,16 +26,20 @@
 
                 if ($dbs->execute() && $dbs->rowCount() > 0) {
                     $contacts = $dbs->fetchAll(PDO::FETCH_ASSOC);
+                    
+                                     
 
                     foreach ($contacts as $contact) {
                         echo '<table><thead>';
                         echo '<tr><th>' . 'Browse Company Emails' . '</th></tr></thead>';
 
                         echo '<tbody><tr> <td>' . $contact["company_name"] . '</td> </tr></tbody>';
+                        //This isn't working, need a way to pass company name to browse emails
+//                        echo '<input type="hidden" name="company_name" value="Bottomline Technologies" />';
 
                         echo '</table>';
                     }
-                    $company_name = $contact["company_name"];
+                    
                 } else {
                     echo 'No company emails found';
                 }

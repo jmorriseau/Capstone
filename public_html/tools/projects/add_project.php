@@ -10,7 +10,8 @@
         <div id="add_project_header">
             <h2>Please enter the new project information below.</h2>
         </div>
-
+        
+        <div class="form_style">
         <form id="add_project" action="#" method="post" enctype="multipart/form-data">
 
             <p>
@@ -40,20 +41,20 @@
 
             <p>	
                 <label>Project Name</label>
-                <input name="project_name" class="validate" type="text" value="" placeholder="Dock Leveler Project" maxlength="40" />
+                <input name="project_name" class="validate input" type="text" value="" placeholder="Dock Leveler Project" maxlength="40" />
                 <span class="hide">*</span>
             </p>
 
             <p>				
                 <label>Invoice Number</label>
-                <input name="invoice_number" type="text" value="" placeholder="12345" maxlength="40" />
+                <input name="invoice_number" class="input" type="text" value="" placeholder="12345" maxlength="40" />
                 <span class="hide">*</span>
             </p>
 
             
             <div id="photo_content">
                 <div id="link_add_photos">
-                    <h2>Add Photos</h2>                   
+                    <h3>Add Photos</h3>                   
                     <i class="fa fa-plus fa-5x"><input type="file" name="fileToUpload" id="fileToUpload"></i>
                     <!--<input type="submit" value="Upload Image" name="submit">-->
                 </div>
@@ -61,13 +62,14 @@
             
             <p>				
                 <label>Notes</label>
-                <textarea name="project_notes" rows="10" cols="50">Add some notes</textarea>
+                <textarea name="project_notes" rows="10" cols="50" placeholder="Add some notes"></textarea>
                 <span class="hide">*</span>
             </p>
  
             <input type="submit" name="submit" value="Save" />
 
         </form>
+        </div>
 
         <script type="text/javascript" src="tools/projects/projects.js"></script>
 

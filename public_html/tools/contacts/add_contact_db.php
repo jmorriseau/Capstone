@@ -13,7 +13,7 @@ $company = $_POST['company'];
 $address_one = $_POST['address_one'];
 $address_two = $_POST['address_two'];
 $city = $_POST['city'];
-$states = $_POST['states'];
+$states = $_POST['state'];
 $zip = $_POST['zip'];
 $primary_contact = $_POST['primary_contact'];
 $primary_contact_phone = $_POST['primary_contact_phone'];
@@ -38,11 +38,12 @@ $validation[10] = $secondary_contact_phone;
 $validation[11] = $secondary_contact_email;
 
 
-//this isn't working
+//this isn't working ask Ryan
 foreach ($validation as $valid) {
     if (is_null($valid)) {
         $success = false;
         $response_array['status'] = 'error';
+        
     }
 }
 

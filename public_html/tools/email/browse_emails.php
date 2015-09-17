@@ -7,7 +7,7 @@
     <body>        
         <?php
         
-        $company_name = 'Bottomline Technologies';
+        $company_name = $_GET['$company_name'];
         
         $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3306;", "root", "");
         $dbs = $pdo->prepare('select * from email_table where contact_id = (select contact_id from contact_table where company_name = :company_name)');

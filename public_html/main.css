@@ -1,9 +1,24 @@
-//Main css for site
+/*Main css for site*/
 @import url(https://fonts.googleapis.com/css?family=Merriweather+Sans);
 
 html, body {
     font-size: 18px;
     font-family: 'Merriweather Sans', sans-serif;
+}
+h2 {
+    text-align:center;
+}
+/**
+.label {
+    float:right;
+    padding:5px;
+    border:2px solid purple;
+}
+**/
+.input, select {
+    width: 200px;
+    float: right;
+    margin-right: 400px;
 }
 
 header {
@@ -14,7 +29,7 @@ header {
     background-repeat:no-repeat;
 }
 
-//Search
+/*Search*/
 #find {
     background-color: #8DABA7;
     height: 25px;
@@ -51,7 +66,7 @@ li a {
     right: 10px;
 }
 
-//Left hand navigation
+/*Left hand navigation*/
 #nav{
     width: 230px;
     float:left;
@@ -76,7 +91,7 @@ li a {
     color:#FFF;
 }
 
-//Main Content
+/*Main Content*/
 #content {
     float:left;
     width: calc(100% - 230px);
@@ -86,3 +101,14 @@ li a {
 #date_header {
     margin-left:230px;
 }
+
+/*Form styles*/
+.form_style{
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 75%;
+    margin: auto;
+    padding:20px;
+    margin-bottom: 5%;
+}
+
