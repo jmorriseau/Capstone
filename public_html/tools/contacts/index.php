@@ -22,8 +22,7 @@
             </div>
         </div>
 
-        <!--Pull in existing contacts to display for the user-->
-        <div class="contact_content">
+        
             <?php
             $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3306;", "root", "");
             $dbs = $pdo->prepare('select * from contact_table');
@@ -32,14 +31,33 @@
             if ($dbs->execute() && $dbs->rowCount() > 0) {
                 $contacts = $dbs->fetchAll(PDO::FETCH_ASSOC);
 
+//                Pull in existing contacts to display for the user
+                
                 foreach ($contacts as $contact) {
-                    echo '<table><thead>';
-                    echo '<tr><th>' . 'Contact Information' . '</th></tr></thead>';
+                    echo '<div class="contact_content">';
+                    echo '<h2 class="contact_name">'. $contact["company_name"] . '</h2>';
+                    echo '<div class="contact_body">';
 
-                    echo '<tbody><tr> <td>' . $contact["company_name"] . '</td> </tr>';
-                    echo '<tr> <td>' . $contact["company_address_line_one"] . '</td></tr>';
+                    echo '<p>' . $contact["company_address_line_one"] .'<br/>';
+                    echo $contact["company_address_line_two"] . '<br/>';
+                    echo $contact["company_city"] . ', ' . $contact["company_state"] . " " . $contact["company_zip"] . '</p>';
+
+                    echo '<p>' . $contact["primary_contact"] . '<br />';
+                    echo  $contact["primary_contact_phone"] . '<br />';
+                    echo  $contact["primary_contact_email"] . '</p>';
+
+                     echo '<p>' . $contact["secondary_contact"] . '<br />';
+                    echo $contact["secondary_contact_phone"] . '<br />';
+                    echo  $contact["secondary_contact_email"] . '</p>';
+
+                   // echo '</table>';
+                    
+                    /*echo '<table class="return_table"><thead class="return_head">';
+                    echo '<tr><th>' . $contact["company_name"] . '</th></tr></thead>';
+
+                    echo '<tbody><tr> <td>' . $contact["company_address_line_one"] . '</td></tr>';
                     echo '<tr> <td>' . $contact["company_address_line_two"] . '</td></tr>';
-                    echo '<tr> <td>' . $contact["company_city"] . ',' . '</td><td>' . $contact["company_state"] . '</td><td>' . $contact["company_zip"] . '</td></tr>';
+                    echo '<tr> <td>' . $contact["company_city"] . ', ' . $contact["company_state"] . " " . $contact["company_zip"] . '</td></tr>';
 
                     echo '<tr> <td>' . $contact["primary_contact"] . '</td></tr>';
                     echo '<tr> <td>' . $contact["primary_contact_phone"] . '</td></tr>';
@@ -49,13 +67,15 @@
                     echo '<tr> <td>' . $contact["secondary_contact_phone"] . '</td></tr>';
                     echo '<tr> <td>' . $contact["secondary_contact_email"] . '</td></tr></tbody>';
 
-                    echo '</table>';
+                   // echo '</table>';*/
+                    echo '</div>';
+                    echo '</div>';
                 }
             } else {
                 echo 'No contacts found';
             }
             ?>
-        </div>
+       
 
         <!--This is example only - To be removed -->
         <div class="contact_content">		
