@@ -7,11 +7,11 @@
     <body>        
         <?php
         
-        $company_name = $_GET['$company_name'];
+        $contact_id = $_GET['cid'];
         
         $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3306;", "root", "");
-        $dbs = $pdo->prepare('select * from email_table where contact_id = (select contact_id from contact_table where company_name = :company_name)');
-        $dbs->bindParam(':company_name', $company_name, PDO::PARAM_STR);
+        $dbs = $pdo->prepare('select * from email_table where contact_id = :contact_id');
+        $dbs->bindParam(':contact_id', $contact_id, PDO::PARAM_STR);
       
         $emails = array();
 
@@ -19,14 +19,15 @@
             $emails = $dbs->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($emails as $email) {
-                echo '<table><thead>';
-                echo '<tr><th>' . 'Company Emails' . '</th></tr></thead>';
+                echo '<div class="tool_content">';
+                echo '<h2 class="tool_name">'. 'Company Emails' . '</h2>';
 
-                echo '<tbody><tr> <td>' . $email["email_subject"] . '</td> </tr>';
-                echo '<tbody><tr> <td>' . $email["email_date_sent"] . '</td> </tr>';
-                echo '<tbody><tr> <td>' . $email["attachment_blog"] . '</td> </tr></tbody>';
+                echo '<p>' . $email["email_subject"] . '<br />';
+                echo $email["email_date_sent"] . '<br />';
+                echo $email["attachment_blog"] . '</p>';
 
-                echo '</table>';
+                echo '</div>';
+                echo '</div>';
             }
         } else {
             echo 'No company emails found';

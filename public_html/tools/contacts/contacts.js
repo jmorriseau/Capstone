@@ -1,3 +1,22 @@
+$(function(){
+    $(".delete_contact").on('click',function(e){
+        e.stopPropagation();
+        e.preventDefault();
+        var contact_id = $(this).data("delete");
+        $.ajax({
+            url: "tools/contacts/delete_contact_db.php?cid=" + contact_id,
+            dataType: "JSON",
+            method: "GET",
+            success: function (data) {
+                console.log("success " + data);
+                //window.open("http://www.google.com","_self");
+                $("#content").load("tools/contacts/index.php", function () {
+                    alert("Contact successfully deleted");
+                });
+            }
+        });
+    });
+});
 
 var form = document.querySelector('form');
 console.log(form);
@@ -77,11 +96,20 @@ function checkForm(e) {
         alert("Please correct the missing fields.")
     }
     else {
+        var url;
+        if($(".submit_form").hasClass("Add")){
+            url = "tools/contacts/add_contact_db.php";
+        }
+        else {
+            url = "tools/contacts/edit_contact_db.php";
+        }
         $.ajax({
-            url: "tools/contacts/add_contact_db.php",
+            url: url,
             type: "POST",
             dataType: "JSON",
-            data: {company: $("input[name=company]").val(),
+            data: {
+                contact_id: $("input[name=contact_id]").val(),
+                company: $("input[name=company]").val(),
                 address_one: $("input[name=address_one]").val(),
                 address_two: $("input[name=address_two]").val(),
                 city: $("input[name=city]").val(),
