@@ -59,14 +59,6 @@
                 </thead>
 
                 <tbody>
-
-<!--                    <tr class="line_item">
-                        <td><input class="create_invoice_input" name="description_1" type="text" maxlength="150"</td>
-                        <td><input class="create_invoice_input line_item_price" name="price_1" type="text" maxlength="99"</td> 
-                        <td><input class="line_item_quantity" name="quantity_1" type="text" maxlength="99"</td>
-                        <td><input class="line_item_total" name="total_1" type="text" readonly="readonly" maxlength="99"</td>                
-                    </tr>-->
-
                 </tbody>
 
                 <tfoot>
