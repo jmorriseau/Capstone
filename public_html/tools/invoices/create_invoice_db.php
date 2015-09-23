@@ -29,9 +29,10 @@ $invoice_number = $_POST['invoice_number'];
 
     $dbs->execute();
     
-    //$id = $dbs->lastInsertId(); 
+    //this is breaking
+    $id = $dbs->lastInsertId(); 
             
-    echo json_encode($date . " " . $contact_id . " " . $sub_total . " " . $tax_rate . " " . $total_tax . " " . $grand_total . " " . $tax_exempt . " " . $invoice_number );
+    echo json_encode($id);
 
 
 
