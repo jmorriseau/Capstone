@@ -51,7 +51,7 @@ foreach ($validation as $valid) {
 //if the variables pass validation send to the db
 if ($success == true) {
 
-    $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3306;", "root", "");
+    $pdo = new PDO("mysql:host=localhost;dbname=ab78751_the_doors;", "ab78751", "qIaz0~rjZ2xe");
     $dbs = $pdo->prepare('insert into contact_table set company_name = :company_name, company_address_line_one = :company_address_line_one, company_address_line_two = :company_address_line_two, company_city = :company_city, company_state = :company_state, company_zip = :company_zip, primary_contact = :primary_contact, primary_contact_phone = :primary_contact_phone, primary_contact_email = :primary_contact_email, secondary_contact = :secondary_contact, secondary_contact_phone = :secondary_contact_phone, secondary_contact_email = :secondary_contact_email');
 
     $dbs->bindParam(':company_name', $company, PDO::PARAM_STR);

@@ -8,7 +8,7 @@ $action;
 if (isset($project_id)) {
     $action = "Edit";
 
-    $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3306;", "root", "");
+    $pdo = new PDO("mysql:host=localhost;dbname=ab78751_the_doors;", "ab78751", "qIaz0~rjZ2xe");
     $dbs = $pdo->prepare('select * from project_table join contact_table on project_table.contact_id WHERE project_id = :project_id');
     $dbs->bindParam(':project_id', $project_id, PDO::PARAM_STR);
     $edit_project = array();
@@ -43,7 +43,7 @@ if (isset($project_id)) {
                         $company_selected = $edit_project['company_name'];
                         echo $company_selected;
                     } else {
-                        $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3306;", "root", "");
+                        $pdo = new PDO("mysql:host=localhost;dbname=ab78751_the_doors;", "ab78751", "qIaz0~rjZ2xe");
                         $dbs = $pdo->prepare('select company_name from contact_table');
                         $companies = array();
                         $dbs->execute();

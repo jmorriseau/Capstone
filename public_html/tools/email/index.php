@@ -7,9 +7,9 @@
         <script>
             $(function(){
                 $(".browse_email").on('click',function(){
-                    $("#content").load("tools/email/browse_emails.php?cid=" + $("input[name=email_contact_id]").val());
-                })
-            })
+                    $("#content").load("tools/email/browse_emails.php?cid=" + $(this).find("input[name=email_contact_id]").val());
+                });
+            });
         </script>
     </head>
     <body>
@@ -29,7 +29,7 @@
 
 <!--            <div id="link_browse_emails">-->
                 <?php
-                $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3306;", "root", "");
+                $pdo = new PDO("mysql:host=localhost;dbname=ab78751_the_doors;", "ab78751", "qIaz0~rjZ2xe");
                 $dbs = $pdo->prepare('select * from contact_table');
                 $contacts = array();
 

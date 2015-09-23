@@ -17,7 +17,7 @@
                 <label>Company</label>
                 <?php
                 $company_selected = filter_input(INPUT_POST, 'companies');
-                $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3306;", "root", "");
+                $pdo = new PDO("mysql:host=localhost;dbname=ab78751_the_doors;", "ab78751", "qIaz0~rjZ2xe");
                 $dbs = $pdo->prepare('select * from contact_table');
                 $companies = array();
                 $dbs->execute();
@@ -26,9 +26,9 @@
                 echo '<option value=" ">Select a Company</option>';
                 foreach ($companies as $value) {
                     if ($company_selected == $value) {
-                        echo '<option value="' . $value['company_name'] . '" selected="selected">' . $value['company_name'] . '</option>';
+                        echo '<option value="' . $value['contact_id'] . '" selected="selected">' . $value['company_name'] . '</option>';
                     } else {
-                        echo '<option value="' . $value['company_name'] . '">' . $value['company_name'] . '</option>';
+                        echo '<option value="' . $value['contact_id'] . '">' . $value['company_name'] . '</option>';
                     }
                 }
                 echo '</select>';
@@ -37,13 +37,13 @@
 
             <p>	
                 <label>Invoice Number:</label>
-                <input name="invoice_num" class="validate" type="text" value="" placeholder="123" maxlength="10" />
+                <input name="invoice_number" class="validate" type="text" value="" placeholder="123" maxlength="10" />
                 <span class="hide">*</span>
             </p>
 
             <p>
                 <label>Date</label>
-                <input type="date" id="date">
+                <input type="date" id="date" name="date">
                 <span class="hide">*</span>
             </p>
 
@@ -79,7 +79,7 @@
                                 <div class="input_group_addon">
                                     <i class="fa fa-usd"></i>                                                          
                                 </div>
-                                <input type="text" id="invoice_subtotal" readonly="readonly" value="" />
+                                <input type="text" id="invoice_subtotal" name="sub_total" readonly="readonly" value="" />
 
                             </div>
                         </td>
@@ -91,7 +91,7 @@
                         <td>
                             <div class="input_group">
                                 <div class="input_group_addon"><strong>%</strong></div>
-                                <input type="text" id="tax_rate" value="7.00" />
+                                <input type="text" id="tax_rate" name="tax_rate" value="7.00" />
                             </div>
                         </td>
                     </tr>
@@ -104,7 +104,7 @@
                                 <div cladd="input_group_addon">
                                     <i class="fa fa-usd"></i>
                                 </div>
-                                <input type="text" id="total_tax" readonly="readonly" value=""/>
+                                <input type="text" id="total_tax"name="total_tax" readonly="readonly" value=""/>
                             </div>
                         </td>                    
                     </tr>
@@ -117,7 +117,7 @@
                                 <div cladd="input_group_addon">
                                     <i class="fa fa-usd"></i>
                                 </div>
-                                <input type="text" id="grand_total" readonly="readonly" value=""/>
+                                <input type="text" id="grand_total" name="grand_total" readonly="readonly" value=""/>
                             </div>
                         </td>                    
                     </tr>
@@ -126,7 +126,7 @@
                         <td></td>
                         <td></td>
                         <td>
-                            <button>Submit</button>
+                            <input type="button" id="save_invoice" value="Save Invoice" />
                         </td>                    
                     </tr>
                 </tfoot>
@@ -146,7 +146,7 @@
         </p>        -->
 
         <p>
-            <input type="checkbox" name="tax_exempt" value="">Tax Exempt<br/>    
+            <input type="checkbox" name="tax_exempt" value=""  />Tax Exempt<br/>    
         </p>
 
 <!--        <p>

@@ -127,7 +127,13 @@ function checkForm(e) {
                 console.log("success " + data);
                 //window.open("http://www.google.com","_self");
                 $("#content").load("tools/contacts/index.php", function () {
-                    alert("Contact successfully added");
+                    if(url == "tools/contacts/add_contact_db.php") {
+                        alert("Contact successfully added");
+                    }
+                    else if(url == "tools/contacts/edit_contact_db.php") {
+                        alert("Contact successfully edited");
+                    }
+                    
                 });
             },
             //if ajax is unsuccessful, show response text in console

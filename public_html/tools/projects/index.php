@@ -30,7 +30,7 @@
         
             <!--Why is this running 4 times-->
             <?php
-            $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3306;", "root", "");
+            $pdo = new PDO("mysql:host=localhost;dbname=ab78751_the_doors;", "ab78751", "qIaz0~rjZ2xe");
             $dbs = $pdo->prepare('SELECT project_table.*, contact_table.* FROM project_table INNER JOIN contact_table on project_table.contact_id = contact_table.contact_id');
             $projects = array();
 

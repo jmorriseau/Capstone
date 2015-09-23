@@ -37,7 +37,7 @@ if ($success === true) {
 }
 
 function get_contact_id($company_name, $project_name, $fileToUpload, $project_notes, $today, $invoice) {
-    $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3306;", "root", "");
+    $pdo = new PDO("mysql:host=localhost;dbname=ab78751_the_doors;", "ab78751", "qIaz0~rjZ2xe");
     $dbs = $pdo->prepare("INSERT into project_table set contact_id = (select contact_id from contact_table where company_name = :company_name), project_name = :project_name, note_blob = :note_blob, photo_blob = :photo_blob, project_date_created = :project_date_created, invoice_number = :invoice_number");
 
     $dbs->bindParam(':company_name', $company_name, PDO::PARAM_STR);

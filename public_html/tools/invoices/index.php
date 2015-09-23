@@ -21,7 +21,7 @@
 	</div>
     
             <?php
-            $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3306;", "root", "");
+            $pdo = new PDO("mysql:host=localhost;dbname=ab78751_the_doors;", "ab78751", "qIaz0~rjZ2xe");
             $dbs = $pdo->prepare('SELECT invoice_table.*, contact_table.* FROM invoice_table INNER JOIN contact_table on invoice_table.contact_id = contact_table.contact_id');
             $invoices = array();
 

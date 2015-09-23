@@ -35,7 +35,7 @@ foreach ($validation as $valid) {
 
 if ($success === true) {
 
-    $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3306;", "root", "");
+    $pdo = new PDO("mysql:host=localhost;dbname=ab78751_the_doors;", "ab78751", "qIaz0~rjZ2xe");
     $dbs = $pdo->prepare("UPDATE project_table SET contact_id = (select contact_id from contact_table where company_name = :company_name), project_name = :project_name, note_blob = :note_blob, photo_blob = :photo_blob, project_date_created = :project_date_created, invoice_number = :invoice_number WHERE project_id = :project_id");
 
     $dbs->bindParam(':project_id', $project_id, PDO::PARAM_STR);

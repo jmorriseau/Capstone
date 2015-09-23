@@ -52,7 +52,7 @@ foreach ($validation as $valid) {
 
 if ($success == true) {
    
-    $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3306;", "root", "");
+    $pdo = new PDO("mysql:host=localhost;dbname=ab78751_the_doors;", "ab78751", "qIaz0~rjZ2xe");
     $dbs = $pdo->prepare('insert into email_table set email_subject = :email_subject, contact_id = (select contact_id from contact_table where company_name = :company_name), attachment_blog = :attachment_blog, email_date_sent = :email_date_sent');
 
     $dbs->bindParam(':company_name', $company, PDO::PARAM_STR);

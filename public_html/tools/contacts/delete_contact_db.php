@@ -8,7 +8,7 @@ $response_array['status'] = 'success';
 if(isset($_GET['cid'])){
     $contact_id = $_GET['cid'];
 
-$pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3306;", "root", "");
+    $pdo = new PDO("mysql:host=localhost;dbname=ab78751_the_doors;", "ab78751", "qIaz0~rjZ2xe");
     $dbs = $pdo->prepare("DELETE FROM contact_table WHERE contact_id = :contact_id");
     $dbs->bindParam(':contact_id', $contact_id, PDO::PARAM_INT);
     $dbs->execute();

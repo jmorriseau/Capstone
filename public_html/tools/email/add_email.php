@@ -19,7 +19,7 @@
                 <?php
                 $company_selected = filter_input(INPUT_POST, 'companies');
                 //$selected = 'selected="selected"';
-                $pdo = new PDO("mysql:host=localhost;dbname=the_doors; port=3306;", "root", "");
+                $pdo = new PDO("mysql:host=localhost;dbname=ab78751_the_doors;", "ab78751", "qIaz0~rjZ2xe");
 
                 $dbs = $pdo->prepare('select * from contact_table');
                 $companies = array();
