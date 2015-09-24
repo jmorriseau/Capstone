@@ -1,5 +1,5 @@
 $(function () {
-//    if delect contact  button is clicked run ajax to delete contact
+//    if delete contact  button is clicked run ajax to delete contact
     $(".delete_contact").on('click', function (e) {
         e.stopPropagation();
         e.preventDefault();
