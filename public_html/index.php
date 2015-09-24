@@ -39,11 +39,6 @@
             Welcome! Please make a selection from the left hand side navigation.
         </div>
 
-
-
-
-
-
         <script src="js/jquery-2.1.3.js" type="text/javascript"></script>
         <script type="text/javascript" src="on_load.js"></script>
 

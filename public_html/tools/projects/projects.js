@@ -128,7 +128,7 @@ function submitForm() {
     var url;
     var company_name;
     var action;
-    //if
+    //if the button is add, send user to add the project else send user to edit the project
     if ($(".submit_form").hasClass("Add")) {
         url = "tools/projects/add_project_db.php";
         company_name = $("select[name=company_name] option:selected").val();
@@ -156,10 +156,10 @@ function submitForm() {
             }
             else {
                 $("#content").load("tools/projects/index.php", function () {
-                    if (action == "Add") {
+                    if (action === "Add") {
                         alert("Project successfully added");
                     }
-                    else if (action == "Edit") {
+                    else if (action === "Edit") {
                         alert("Project successfully edited");
                     }
                 });

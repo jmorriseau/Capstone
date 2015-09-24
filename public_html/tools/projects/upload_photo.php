@@ -2,6 +2,7 @@
 
 $data = array();
 
+//if there is an upload set folder directory and add upload
 if (isset($_GET['uploads'])) {
     $error = false;
     $files = array();
