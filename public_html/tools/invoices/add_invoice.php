@@ -136,7 +136,7 @@
             <input type="checkbox" name="tax_exempt" value=""  />Tax Exempt<br/>    
         </p>
 
-        <input type="submit" name="submit_send" value="Save and Send" />
+
 
 
     </form>

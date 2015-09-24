@@ -57,7 +57,7 @@ if($success){
 
     $dbs->execute();
 
-    $id = $dbs->lastInsertId(); 
+   // $id = $dbs->lastInsertId(); 
 }
             
     echo json_encode($id);
