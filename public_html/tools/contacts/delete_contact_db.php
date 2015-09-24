@@ -5,6 +5,7 @@ header('Content-type: application/json');
 
 $response_array['status'] = 'success';
 
+//if cid is passes set it to a php variable and query the db to delete the contact
 if(isset($_GET['cid'])){
     $contact_id = $_GET['cid'];
 
@@ -16,9 +17,3 @@ if(isset($_GET['cid'])){
    
 echo json_encode($response_array['status']);
    
-   
-   
-   
-   
-    
-?>

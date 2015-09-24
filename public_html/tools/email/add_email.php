@@ -13,25 +13,24 @@
         
         <div class="form_style">
         <form id="add_email" action="#" method="post">
-
+<!--            pull in existing contacts to populate email to-->
             <p>
                 <label>Company</label>
                 <?php
                 $company_selected = filter_input(INPUT_POST, 'companies');
-                //$selected = 'selected="selected"';
                 $pdo = new PDO("mysql:host=localhost;dbname=ab78751_the_doors;", "ab78751", "qIaz0~rjZ2xe");
 
                 $dbs = $pdo->prepare('select * from contact_table');
                 $companies = array();
                 $dbs->execute();
                 $companies = $dbs->fetchAll(PDO::FETCH_ASSOC);
-                echo '<select name="company_name" class="validate">';
+                echo '<select name="company_name">';
                 echo '<option value="">Select a Company</option>';
                 foreach ($companies as $value) {
                     if ($company_selected == $value) {
-                        echo '<option value="' . $value['company_name'] . '" selected="selected">' . $value['company_name'] . '</option>';
+                        echo '<option value="' . $value['contact_id'] . '" selected="selected">' . $value['company_name'] . '</option>';
                     } else {
-                        echo '<option value="' . $value['company_name'] . '">' . $value['company_name'] . '</option>';
+                        echo '<option value="' . $value['contact_id'] . '">' . $value['company_name'] . '</option>';
                     }
                 }
                 echo '</select>';

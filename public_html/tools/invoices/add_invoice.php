@@ -12,7 +12,7 @@
         </div>
 
         <form id="add_invoice" action="#" method="post">
-
+<!--pull all companies from contacts, set up table for invoice-->
             <p>
                 <label>Company</label>
                 <?php
@@ -101,7 +101,7 @@
                         <td>Total Tax</td>
                         <td>
                             <div class="input_group">
-                                <div cladd="input_group_addon">
+                                <div class="input_group_addon">
                                     <i class="fa fa-usd"></i>
                                 </div>
                                 <input type="text" id="total_tax"name="total_tax" readonly="readonly" value=""/>
@@ -114,7 +114,7 @@
                         <td>Grand Total</td>
                         <td>
                             <div class="input_group">
-                                <div cladd="input_group_addon">
+                                <div class="input_group_addon">
                                     <i class="fa fa-usd"></i>
                                 </div>
                                 <input type="text" id="grand_total" name="grand_total" readonly="readonly" value=""/>
@@ -131,31 +131,11 @@
                     </tr>
                 </tfoot>
             </table>
-<!--            <input type="button" id="add_row" value="Add Additional Items"/>
-            <input type="button" id="delete_row" value="Delete Last Item"/>-->
-        </p>
-
-<!--        <p>
-            <label>Total</label>
-            <input type="text">
-        </p>-->
-<!--
-        <p>
-            <label>Tax</label>
-            <input type="text">
-        </p>        -->
 
         <p>
             <input type="checkbox" name="tax_exempt" value=""  />Tax Exempt<br/>    
         </p>
 
-<!--        <p>
-            <label>Grand Total</label>
-            <input type="text">
-        </p>-->
-
-
-        <input type="submit" name="submit_save" value="Update/Save" />
         <input type="submit" name="submit_send" value="Save and Send" />
 
 

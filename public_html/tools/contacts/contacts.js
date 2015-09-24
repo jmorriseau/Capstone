@@ -1,5 +1,6 @@
-$(function(){
-    $(".delete_contact").on('click',function(e){
+$(function () {
+//    if delect contact  button is clicked run ajax to delete contact
+    $(".delete_contact").on('click', function (e) {
         e.stopPropagation();
         e.preventDefault();
         var contact_id = $(this).data("delete");
@@ -9,7 +10,6 @@ $(function(){
             method: "GET",
             success: function (data) {
                 console.log("success " + data);
-                //window.open("http://www.google.com","_self");
                 $("#content").load("tools/contacts/index.php", function () {
                     alert("Contact successfully deleted");
                 });
@@ -33,10 +33,10 @@ var regexValidations = {
     "zip": /^\d{5}(?:[-\s]\d{4})?$/,
     "primary_contact": /^[a-zA-Z ]*$/,
     "primary_contact_phone": /^\(?([2-9]{1}[0-9]{2})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/,
-    "primary_contact_email": /^[a-zA-Z0-9$]+[@]{1}[a-zA-Z]+[\.]{1}[a-zA-Z]{2,3}$/,
+    "primary_contact_email": /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i,
     "secondary_contact": /^[a-zA-Z ]*$/,
     "secondary_contact_phone": /^\(?([2-9]{1}[0-9]{2})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/,
-    "secondary_contact_email": /^[a-zA-Z0-9$]+[@]{1}[a-zA-Z]+[\.]{1}[a-zA-Z]{2,3}$/
+    "secondary_contact_email": /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
 };
 
 //Run this function on submit
@@ -46,35 +46,35 @@ function checkForm(e) {
     //set flag to help check validation
     var isValid = true;
 
-   //if address two has a value, add the validator class, if not, remove the validator class
+    //if address two has a value, add the validator class, if not, remove the validator class
     if ($.trim($("input[name=address_two]").val()) != "") {
         $("input[name=address_two]").addClass('validate');
     }
-    else{
+    else {
         $("input[name=address_two]").removeClass('validate');
     }
-    
+
     //if secondary contact has a value, add the validator class, if not, remove the validator class
     if ($.trim($("input[name=secondary_contact]").val()) != "") {
         $("input[name=secondary_contact]").addClass('validate');
     }
-    else{
+    else {
         $("input[name=secondary_contact]").removeClass('validate');
     }
-    
+
     //if secondary contact phone has a value, add the validator class, if not, remove the validator class
     if ($.trim($("input[name=secondary_contact_phone]").val()) != "") {
         $("input[name=secondary_contact_phone]").addClass('validate');
     }
-    else{
+    else {
         $("input[name=secondary_contact_phone]").removeClass('validate');
     }
-    
+
     //if secondary contact email has a value, add the validator class, if not, remove the validator class
     if ($.trim($("input[name=secondary_contact_email]").val()) != "") {
         $("input[name=secondary_contact_email]").addClass('validate');
     }
-    else{
+    else {
         $("input[name=secondary_contact_email]").removeClass('validate');
     }
 
@@ -97,7 +97,7 @@ function checkForm(e) {
     }
     else {
         var url;
-        if($(".submit_form").hasClass("Add")){
+        if ($(".submit_form").hasClass("Add")) {
             url = "tools/contacts/add_contact_db.php";
         }
         else {
@@ -124,17 +124,20 @@ function checkForm(e) {
             },
             //if ajax is successful, return to contacts main page and alert the user
             success: function (data) {
-                console.log("success " + data);
-                //window.open("http://www.google.com","_self");
-                $("#content").load("tools/contacts/index.php", function () {
-                    if(url == "tools/contacts/add_contact_db.php") {
-                        alert("Contact successfully added");
-                    }
-                    else if(url == "tools/contacts/edit_contact_db.php") {
-                        alert("Contact successfully edited");
-                    }
-                    
-                });
+                if (data !== "") {
+                    alert(data);
+                }
+                else {
+                    $("#content").load("tools/contacts/index.php", function () {
+                        if (url == "tools/contacts/add_contact_db.php") {
+                            alert("Contact successfully added");
+                        }
+                        else if (url == "tools/contacts/edit_contact_db.php") {
+                            alert("Contact successfully edited");
+                        }
+
+                    });
+                }
             },
             //if ajax is unsuccessful, show response text in console
             error: function (data) {

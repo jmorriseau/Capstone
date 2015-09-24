@@ -7,6 +7,7 @@
         <link rel="stylesheet" type="text/css" href="images/css/font-awesome.css" />
         <script>
             $(function(){
+//                if an existing contact is clicked go to add contact page and fill existing information 
                 $(".edit_contact").on("click",function(){
                     var id = $(this).data("contact");
                     $("#content").load("tools/contacts/add_contact.php?cid=" + id);
@@ -31,6 +32,7 @@
         </div>
 
         
+
             <?php
             $pdo = new PDO("mysql:host=localhost;dbname=ab78751_the_doors;", "ab78751", "qIaz0~rjZ2xe");
             $dbs = $pdo->prepare('select * from contact_table');

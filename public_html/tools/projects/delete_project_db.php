@@ -5,6 +5,7 @@ header('Content-type: application/json');
 
 $response_array['status'] = 'success';
 
+//if project is is set, set it to a php variable and delect the project from the db
 if(isset($_GET['pid'])){
     $project_id = $_GET['pid'];
 

@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="images/css/font-awesome.css" />
         <script>
             $(function(){
+                //if an existing project is clicked on take user to add project page and prefill existing data
                 $(".edit_project").on("click",function(){
                     var id = $(this).data("project");
                     $("#content").load("tools/projects/add_project.php?pid=" + id);
@@ -28,7 +29,7 @@
             </div>
         </div>
         
-            <!--Why is this running 4 times-->
+            <!--query existing projects-->
             <?php
             $pdo = new PDO("mysql:host=localhost;dbname=ab78751_the_doors;", "ab78751", "qIaz0~rjZ2xe");
             $dbs = $pdo->prepare('SELECT project_table.*, contact_table.* FROM project_table INNER JOIN contact_table on project_table.contact_id = contact_table.contact_id');

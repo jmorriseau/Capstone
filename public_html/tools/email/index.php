@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="images/css/font-awesome.css" />
         <script>
             $(function(){
+//                if the user clicks a company folder, take them to browse the emails for that company
                 $(".browse_email").on('click',function(){
                     $("#content").load("tools/email/browse_emails.php?cid=" + $(this).find("input[name=email_contact_id]").val());
                 });
@@ -27,12 +28,13 @@
             </div>
         </div>
 
-<!--            <div id="link_browse_emails">-->
+
                 <?php
                 $pdo = new PDO("mysql:host=localhost;dbname=ab78751_the_doors;", "ab78751", "qIaz0~rjZ2xe");
                 $dbs = $pdo->prepare('select * from contact_table');
                 $contacts = array();
 
+//                pull back contacts
                 if ($dbs->execute() && $dbs->rowCount() > 0) {
                     $contacts = $dbs->fetchAll(PDO::FETCH_ASSOC);
                                                        
@@ -52,8 +54,6 @@
                     echo 'No company emails found';
                 }
                 ?>
-                
-            <!--</div>-->
 
         <script type="text/javascript" src="on_load.js"></script>
 

@@ -27,7 +27,7 @@
         <!-- Left hand navigation -->
         <div id="nav">
             <ul>
-                <li>Home</li>
+                 <li><a href="#" id="link_index">Home</a></li>
                 <li><a href="#" id="link_contacts">Contacts</a></li>
                 <li><a href="#" id="link_projects">Projects</a></li>
                 <li><a href="#" id="link_invoices">Quotes/Invoices</a></li>

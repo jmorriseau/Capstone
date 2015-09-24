@@ -1,6 +1,6 @@
-// when the page loads, add 5 rows to the invoice table
+// when the page loads, add 3 rows to the invoice table
 $(function () {
-    for (var i = 0; i < 5; i++) {
+    for (var i = 0; i < 3; i++) {
         insertRow();
     }
 
@@ -15,7 +15,7 @@ $(function () {
 });
 
 
-
+//set even listeners for add row and delete row
 var insert = document.querySelector('#add_row');
 insert.addEventListener('click', insertRow);
 
@@ -30,7 +30,6 @@ function insertRow(e) {
         e.stopPropagation();
         e.preventDefault();
     }
-
     $("#table_data tbody").append('<tr class="line_item">\n\
 <td><input type="text" value="" class="create_invoice_input" name="description" /></td> \n\
 <td><input type="text" value="" class="create_invoice_input line_item_price" name="prince" /></td>\n\
@@ -98,11 +97,9 @@ $(function () {
         console.log($(this).is(":checked"));
     });
 
-
-
-
+//when save invoice button is clicked send to db
     $("#save_invoice").on("click", function () {
-        console.log("scarlet");
+
 
         $.ajax({
             url: "tools/invoices/create_invoice_db.php",

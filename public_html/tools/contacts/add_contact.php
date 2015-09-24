@@ -1,11 +1,13 @@
 <?php
+//if contact id is passed set it to a php variable
 if (isset($_GET['cid'])) {
     $contact_id = $_GET['cid'];
 }
-//echo $contact_id;
 
 $action;
+//if contact is variable is set search db for contact id
 if (isset($contact_id)) {
+//    change action and button to edit
     $action = "Edit";
 
     $pdo = new PDO("mysql:host=localhost;dbname=ab78751_the_doors;", "ab78751", "qIaz0~rjZ2xe");
@@ -17,6 +19,7 @@ if (isset($contact_id)) {
         $edit_contact = $dbs->fetch(PDO::FETCH_ASSOC);
     }
 } else {
+//    else change action and button to add
     $action = "Add";
 }
 ?>
@@ -175,6 +178,7 @@ if (isset($contact_id)) {
                            } ?> "/>                
                 <input class="submit_form <?php echo $action ?>" type="submit" name="submit" value="<?php echo $action ?>" />
                 
+                <!--if action is edit add a delete button-->
                 <?php 
                 if($action == "Edit"){
                     echo '<button class="delete_contact" data-delete="' . $contact_id . '" >Delete</button>';

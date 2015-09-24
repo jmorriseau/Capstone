@@ -1,37 +1,36 @@
 <?php
 
-
+//set context type to json for ajax
 header('Content-type: application/json');
 
+//set flag variables
 $db_success = "";
 $success = true;
 $response_array['status'] = 'success';
 $db_success = '';
 date_default_timezone_set('America/New_York');
 $today = date('Y-m-d H:i:s'); 
+$err_msg = '';
 
+//get info from post and set to php variables
 $company_name = $_POST['company_name'];
 $project_name = $_POST['project_name'];
 $invoice = $_POST['invoice_number'];
 $project_notes = $_POST['project_notes'];
 $fileToUpload = $_POST['fileToUpload'];
 
-$validation = array();
-$validation[0] = $company_name;
-$validation[1] = $project_name;
-$validation[2] = $invoice;
-$validation[3] = $project_notes;
-$validation[4] = $fileToUpload;
-
-
-//this isn't working
-foreach ($validation as $valid) {
-    if (is_null($valid)) {
-        $success = false;
-        $response_array['status'] = 'error';
-    }
+//php validation
+if (!is_string($company_name) || empty($company_name)) {
+                $err_msg .= 'Company is a required field. '; 
+                $success = false;
+            }
+if (!is_string($project_name) || empty($project_name)) {
+                $err_msg .= 'Project name is a required field. '; 
+                $success = false;
 }
 
+
+//if fields pass validation add them to the db
 if ($success === true) {
     get_contact_id($company_name, $project_name, $fileToUpload, $project_notes, $today, $invoice);
 }
@@ -54,9 +53,9 @@ function get_contact_id($company_name, $project_name, $fileToUpload, $project_no
         $db_success = 'Insert NOT successful';
     }
 
-    //return $db_success;
 }
 
-echo json_encode($project_notes);
+//send back error messages
+echo json_encode($err_msg);
 
 

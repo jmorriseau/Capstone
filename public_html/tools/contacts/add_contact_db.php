@@ -7,6 +7,7 @@ header('Content-type: application/json');
 $success = true;
 $response_array['status'] = 'success';
 $db_success = '';
+$err_msg = '';
 
 //take the fields from the post and set them to php variables
 $company = $_POST['company'];
@@ -22,34 +23,47 @@ $secondary_contact = $_POST['secondary_contact'];
 $secondary_contact_phone = $_POST['secondary_contact_phone'];
 $secondary_contact_email = $_POST['secondary_contact_email'];
 
-//add variables to a validation array
-$validation = array();
-$validation[0] = $company;
-$validation[1] = $address_one;
-$validation[2] = $address_two;
-$validation[3] = $city;
-$validation[4] = $states;
-$validation[5] = $zip;
-$validation[6] = $primary_contact;
-$validation[7] = $primary_contact_phone;
-$validation[8] = $primary_contact_email;
-$validation[9] = $secondary_contact;
-$validation[10] = $secondary_contact_phone;
-$validation[11] = $secondary_contact_email;
-
-
-//this isn't working ask Ryan
-foreach ($validation as $valid) {
-    if (is_null($valid)) {
-        $success = false;
-        $response_array['status'] = 'error';
-        
-    }
-}
+//php validation
+if (!is_string($company) || empty($company)) {
+                $err_msg .= 'Company is a required field. '; 
+                $success = false;
+            }           
+if (!is_string($address_one) || empty($address_one)) {
+                $err_msg .= 'Address Line One is a required field. '; 
+                $success = false;
+            }           
+if (!is_string($city) || empty($city)) {
+                $err_msg .= 'City is a required field. '; 
+                $success = false;
+            }           
+if (!is_string($states) || empty($states)) {
+                $err_msg .= 'State is a required field. '; 
+                $success = false;
+            }           
+if (!is_numeric($zip) || empty($zip)) {
+                $err_msg .= 'ZIP Code is a required field. '; 
+                $success = false;
+            }           
+if (!is_string($primary_contact) || empty($primary_contact)) {
+                $err_msg .= 'Primary Contact is a required field. '; 
+                $success = false;
+            }           
+if (!is_string($primary_contact_phone) || empty($primary_contact_phone)) {
+                $err_msg .= 'Primary Contact phone is a required field. '; 
+                $success = false;
+            }           
+if (!is_string($primary_contact_email) || empty($primary_contact_email)) {
+                $err_msg .= 'Primary Contact email is a required field. '; 
+                $success = false;
+            }  
+if ( filter_var($primary_contact_email, FILTER_VALIDATE_EMAIL) == false ) {
+            $err_msg .= 'Primary Contact email is invalid. '; 
+            $success = false;
+        }            
 
 
 //if the variables pass validation send to the db
-if ($success == true) {
+if ($success === true) {
 
     $pdo = new PDO("mysql:host=localhost;dbname=ab78751_the_doors;", "ab78751", "qIaz0~rjZ2xe");
     $dbs = $pdo->prepare('insert into contact_table set company_name = :company_name, company_address_line_one = :company_address_line_one, company_address_line_two = :company_address_line_two, company_city = :company_city, company_state = :company_state, company_zip = :company_zip, primary_contact = :primary_contact, primary_contact_phone = :primary_contact_phone, primary_contact_email = :primary_contact_email, secondary_contact = :secondary_contact, secondary_contact_phone = :secondary_contact_phone, secondary_contact_email = :secondary_contact_email');
@@ -75,5 +89,5 @@ if ($success == true) {
     }
 }
 //send success back to js
-echo json_encode($db_success);
+echo json_encode($err_msg);
 

@@ -1,8 +1,10 @@
 <?php
 
-
+//set content type to json for ajax
 header('Content-type: application/json');
 
+//set flag variables
+$err_msg = '';
 $db_success = "";
 $success = true;
 $response_array['status'] = 'success';
@@ -10,6 +12,7 @@ $db_success = '';
 date_default_timezone_set('America/New_York');
 $today = date('Y-m-d H:i:s'); 
 
+//set post to php variables
 $project_id = $_POST['project_id'];
 $company_name = $_POST['company_name'];
 $project_name = $_POST['project_name'];
@@ -17,22 +20,17 @@ $invoice = $_POST['invoice_number'];
 $project_notes = $_POST['project_notes'];
 $fileToUpload = $_POST['fileToUpload'];
 
-$validation = array();
-$validation[0] = $company_name;
-$validation[1] = $project_name;
-$validation[2] = $invoice;
-$validation[3] = $project_notes;
-$validation[4] = $fileToUpload;
+//php validation
+if (!is_string($company_name) || empty($company_name)) {
+                $err_msg .= 'Company is a required field. '; 
+                $success = false;
+            }
+if (!is_string($project_name) || empty($project_name)) {
+                $err_msg .= 'Project name is a required field. '; 
+                $success = false;
+            }
 
-
-//this isn't working
-foreach ($validation as $valid) {
-    if (is_null($valid)) {
-        $success = false;
-        $response_array['status'] = 'error';
-    }
-}
-
+//if fields pass validation update the project in the db
 if ($success === true) {
 
     $pdo = new PDO("mysql:host=localhost;dbname=ab78751_the_doors;", "ab78751", "qIaz0~rjZ2xe");
@@ -56,6 +54,6 @@ if ($success === true) {
 
 }
 
-echo json_encode($project_notes);
+echo json_encode($err_msg);
 
 

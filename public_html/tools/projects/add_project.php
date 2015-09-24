@@ -1,15 +1,17 @@
 <?php
+//if project id is set, set it to a php variable
 if (isset($_GET['pid'])) {
     $project_id = $_GET['pid'];
 }
-//echo $project_id;
 
 $action;
 if (isset($project_id)) {
+//    if there is a project is, set the action to edit
     $action = "Edit";
 
     $pdo = new PDO("mysql:host=localhost;dbname=ab78751_the_doors;", "ab78751", "qIaz0~rjZ2xe");
-    $dbs = $pdo->prepare('select * from project_table join contact_table on project_table.contact_id WHERE project_id = :project_id');
+    $dbs = $pdo->prepare('SELECT project_table.*, contact_table.* FROM project_table INNER JOIN contact_table on project_table.contact_id = contact_table.contact_id');
+    
     $dbs->bindParam(':project_id', $project_id, PDO::PARAM_STR);
     $edit_project = array();
 
@@ -17,6 +19,7 @@ if (isset($project_id)) {
         $edit_project = $dbs->fetch(PDO::FETCH_ASSOC);
     }
 } else {
+    //is not set the action to addd
     $action = "Add";
 }
 ?>
